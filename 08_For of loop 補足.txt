@@ -1,0 +1,20 @@
+■for...ofループの引数にconstを使う理由
+ループ内で変数を再割り当てしないようにするためです。
+constで変数を宣言すると、変数に再割り当てを行おうとするとエラーが発生します。これにより、for...ofループ内でイテレータから取得した値が変更されることがなく、プログラムの予期せぬ振る舞いを防ぐことができます。また、constを使用することにより、可変性を抑制し、コードの安全性を高めることができます。
+
+The parameter in a for...of loop uses const instead of let because the loop variable is intended to be read-only. 
+
+When using a for...of loop, the loop variable is assigned a new value each time the loop iterates over a new element of the iterable. It is not intended for this variable to be reassigned a new value within the loop, hence why it is declared with const.
+
+Declaring the loop variable with let is also possible, but it can lead to unintended side effects, such as inadvertently reassigning the loop variable inside the loop body, which could cause unexpected behavior. 
+
+Using const for the loop variable helps prevent such mistakes and makes the code more predictable and easier to reason about.
+
+■Iterable とは
+Iterable（イテラブル）は、反復処理が可能なオブジェクトを表す。JavaScriptでは、配列、文字列、Map、SetなどデフォルトがIterableであり、for...ofループなどの反復処理が可能です。Iterableは、Symbol.iteratorメソッドを実装する必要があります。Symbol.iteratorメソッドは、オブジェクトを反復するためのイテレーターを返します。
+
+In programming, an Iterable is any object that can be iterated (looped) over, meaning that you can traverse through all its elements one by one. It can be a collection, an array, a set, a string, or any other data structure that allows for iteration.
+
+In order for an object to be iterable, it must implement the Iterable interface, which requires the object to have a method called Symbol.iterator(). This method returns an iterator object that defines a next() method, which returns the next element in the iteration sequence or signals the end of the sequence.
+
+Iterables are commonly used in looping constructs such as for-of loops, the spread operator, and the yield* operator in generator functions.
