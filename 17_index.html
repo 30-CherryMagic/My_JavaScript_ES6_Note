@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import {Animal} from './17_classes.js'
+    
+    const cat = new Animal('cat',4);
+    console.log(cat); //Animal {type: 'cat', legs: 4}
+
+    const man = new Animal();
+    console.log(man); //Animal {type: 'human', legs: 2}
+
+    man.makeNoise(); //@!$#@%@#^
+    man.makeNoise('hello'); //hello
+
+    console.log(Animal.goodBye());//goodbye
+  </script>
+</body>
+</html>
